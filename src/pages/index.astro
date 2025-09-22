@@ -5,8 +5,9 @@ import GitHubIcon from "../components/icons/GitHubIcon.astro";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import MailIcon from "../components/icons/MailIcon.astro";
 import SocialPill from "../components/SocialPill.astro";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+import Experience from "../components/Experience/Experience.astro";
+import Section from "../components/Section.astro";
 ---
 
 <Layout
@@ -14,9 +15,9 @@ import SocialPill from "../components/SocialPill.astro";
 	description="Contrata a Erick Toala, un talentoso desarrollador y programador web, para llevar tu presencia en línea al siguiente nivel."
 >
 	<main>
-		<section class="container mx-auto px-4 py-16 max-w-5xl">
-			<div class="grid grid-cols-2 grid-rows-1 gap-4">
-				<div>
+		<Section class="pt-16 md:pt-24 pb-24 md:pb-48">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0 gap-x-4">
+				<div class="order-2 md:order-1">
 					<h1 class="text-4xl font-extrabold flex flex-row gap-x-4">
 						Hola, soy Erick Toala
 						<a
@@ -72,14 +73,18 @@ import SocialPill from "../components/SocialPill.astro";
 					</nav>
 				</div>
 				<!-- Aqui va  la foto centrada en el div -->
-				<div>
+				<div class="order-1 md:order-2">
 					<img
-						class="rounded-full w-[50vh] mx-auto"
+						class="rounded-full size-80 lg:w-[50vh] mx-auto"
 						src="./erick-perfil.jpg"
 						alt="erickdev logo"
 					/>
 				</div>
 			</div>
-		</section>
+		</Section>
+		<Section id="experience">
+			<h2 class="text-2xl font-semibold mb-6">Experiencia</h2>
+			<Experience />
+		</Section>
 	</main>
 </Layout>
