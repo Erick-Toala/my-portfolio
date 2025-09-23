@@ -3,26 +3,28 @@ import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCE = [
     {
-        date: "March 2022",
-        title: "Marketing UI design in Figma",
+        date: "Abr 2025 - Ago 2025",
+        title: "Desarrollador Plataforma Web IoT Uleam",
+        company: "ULEAM",
         description:
-            "All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.",
+            "Desarrollo, diseño e implementación de la plataforma web IoT Uleam, manejo de tecnologías IoT, manejo de Base de Datos.",
         link: "#",
     },
     {
-        date: "April 2022",
-        title: "E-Commerce UI code in Tailwind CSS",
+        date: "May 2024 - Ago 2024",
+        title: "Laravel Developer",
+        company: "ULEAM",
         description:
-            "Get started with dozens of web components and interactive elements built on top of Tailwind CSS.",
+            "Desarrollo del software SIOT, Trabajo en equipo, Modificaciones y Mantenimiento del sistema, Soporte Técnico, Aplicación del patrón de diseño MVC.",
         link: "#",
     },
 ];
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
+<ol class="relative">
     {
         EXPERIENCE.map((experience) => (
-            <li class="mb-10 ms-4">
+            <li>
                 <ExperienceItem {...experience} />
             </li>
         ))

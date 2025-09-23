@@ -9,6 +9,7 @@ import SocialPill from "../components/SocialPill.astro";
 import Experience from "../components/Experience.astro";
 import Section from "../components/Section.astro";
 import Projects from "../components/Projects.astro";
+import WhatsAppIcon from "../components/icons/WhatsAppIcon.astro";
 ---
 
 <Layout
@@ -17,7 +18,9 @@ import Projects from "../components/Projects.astro";
 >
 	<main>
 		<Section class="lg:h-[90vh] pt-24 md:pt-[25vh] pb-24 md:pb-0">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0 gap-x-4">
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0 gap-x-4"
+			>
 				<div class="order-2 md:order-1">
 					<h1 class="text-4xl font-extrabold flex flex-row gap-x-4">
 						Hola, soy Erick Toala
@@ -31,17 +34,17 @@ import Projects from "../components/Projects.astro";
 						</a>
 					</h1>
 					<h2 class="text-xl font-semibold mt-2 text-blue-600">
-						Ingeniero en TI | Desarrollador Web
+						Ingeniero en TI | Desarrollador FullStack
 					</h2>
 					<p class="mt-4 text-lg">
 						Desarrollador web apasionado por crear experiencias
 						digitales impresionantes. Bienvenido a mi portafolio,
 						donde comparto mis proyectos y habilidades.
 					</p>
-					<div class="flex gap-x-4">
+					<div class="flex flex-wrap gap-4 mt-6">
 						<a
 							href="#"
-							class="text-sm inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+							class="text-sm flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition w-full sm:w-auto"
 						>
 							Contáctame
 						</a>
@@ -49,9 +52,18 @@ import Projects from "../components/Projects.astro";
 							href="/Erick_Toala_CV.pdf"
 							target="_blank"
 							rel="noopener"
-							class="text-sm inline-block mt-6 px-6 py-3 border border-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+							class="text-sm flex items-center justify-center px-6 py-3 border border-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition w-full sm:w-auto"
 						>
 							Descargar CV
+						</a>
+						<a
+							href="#"
+							target="_blank"
+							rel="noopener"
+							class="text-sm flex items-center justify-center px-4 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition gap-x-2 w-full sm:w-auto"
+						>
+							<WhatsAppIcon class="size-5" />
+							<p class="md:hidden">WhatsApp</p>
 						</a>
 					</div>
 
@@ -83,13 +95,22 @@ import Projects from "../components/Projects.astro";
 				</div>
 			</div>
 		</Section>
-		<Section class="pb-20 lg:pt-20" id="experience">
+		<Section class="lg:pt-20" id="experience">
 			<h2 class="text-2xl font-semibold mb-6">Experiencia</h2>
 			<Experience />
 		</Section>
-		<Section class="pb-24" id="project">
+		<Section class="pb-24 pt-20" id="project">
 			<h2 class="text-2xl font-semibold mb-6">Proyectos</h2>
 			<Projects />
+			<!-- Boton ver mas proyectos -->
+			<div class="text-center mt-12">
+				<a
+					href=""
+					class="text-sm inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+				>
+					Ver más proyectos
+				</a>
+			</div>
 		</Section>
 	</main>
 </Layout>
