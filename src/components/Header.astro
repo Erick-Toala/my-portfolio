@@ -11,27 +11,30 @@
 </header> -->
 
 
-<header class="flex justify-between items-center py-4 w-full lg:w-[1120px] mx-auto px-4 relative z-50">
-  <!-- Logo -->
+<header class="fixed top-0 left-0 right-0 py-4 w-full px-4 z-50 bg-neutral-950/80 backdrop-blur">
+  <div class="w-full max-w-5xl mx-auto flex justify-between items-center">
+<!-- Logo -->
   <div class="flex items-center gap-x-2">
     <span class="font-bold text-lg ml-2">erickdev</span>
   </div>
 
   <!-- Botón menú (solo móviles) -->
-  <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none">
+  <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none ">
     <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
     <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
     <span class="block w-6 h-0.5 bg-white transition-all"></span>
   </button>
 
   <!-- Menú -->
-  <nav id="menu" class="hidden flex-col gap-y-4 absolute top-16 left-0 w-full lg:w-auto bg-gray-900 shadow-md p-6 
+  <nav id="menu" class="hidden flex-col gap-y-4 absolute top-16 left-0 w-full lg:w-auto bg-neutral-950/95 shadow-md p-6 
                        lg:p-0 lg:static lg:flex lg:flex-row lg:gap-x-10 lg:shadow-none lg:bg-transparent">
     <a href="#top" class="hover:text-blue-500">Inicio</a>
     <a href="#experience" class="hover:text-blue-500">Experiencia</a>
     <a href="#project" class="hover:text-blue-500">Proyectos</a>
     <a href="#contact" class="hover:text-blue-500">Contacto</a>
   </nav>
+  </div>
+  
 </header>
 
 <!-- Script: corre en el navegador sin necesidad de is:client -->
