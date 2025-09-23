@@ -5,11 +5,12 @@ import GitHubIcon from "../components/icons/GitHubIcon.astro";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import MailIcon from "../components/icons/MailIcon.astro";
 import SocialPill from "../components/SocialPill.astro";
+import WhatsAppIcon from "../components/icons/WhatsAppIcon.astro";
 
 import Experience from "../components/Experience.astro";
 import Section from "../components/Section.astro";
 import Projects from "../components/Projects.astro";
-import WhatsAppIcon from "../components/icons/WhatsAppIcon.astro";
+import Technologies from "../components/Technologies.astro";
 ---
 
 <Layout
@@ -99,7 +100,7 @@ import WhatsAppIcon from "../components/icons/WhatsAppIcon.astro";
 			<h2 class="text-2xl font-semibold mb-6">Experiencia</h2>
 			<Experience />
 		</Section>
-		<Section class="pb-24 pt-20" id="project">
+		<Section class="pt-20" id="project">
 			<h2 class="text-2xl font-semibold mb-6">Proyectos</h2>
 			<Projects />
 			<!-- Boton ver mas proyectos -->
@@ -111,6 +112,10 @@ import WhatsAppIcon from "../components/icons/WhatsAppIcon.astro";
 					Ver más proyectos
 				</a>
 			</div>
+		</Section>
+		<Section class="pb-24 pt-20">
+			<h2 class="text-2xl font-semibold mb-6">Tecnologías</h2>
+			<Technologies />
 		</Section>
 	</main>
 </Layout>

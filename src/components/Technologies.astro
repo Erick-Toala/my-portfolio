@@ -1,0 +1,127 @@
+---
+import AstroIcon from "./icons/AstroIcon.astro";
+import DjangoIcon2 from "./icons/DjangoIcon2.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import GitIcon from "./icons/GitIcon.astro";
+import NextJSIcon from "./icons/NextJSIcon.astro";
+import NodeIcon from "./icons/NodeIcon.astro";
+import PythonIcon from "./icons/PythonIcon.astro";
+import ReactIcon from "./icons/ReactIcon.astro";
+import TailwindIcon from "./icons/TailwindIcon.astro";
+import TypeScriptIcon from "./icons/TypeScriptIcon.astro";
+import VisualCodeIcon from "./icons/VisualCodeIcon.astro";
+import AmazonWebServiceIcon from "./icons/AmazonWebServiceIcon.astro";
+import LaravelIcon from "./icons/LaravelIcon.astro";
+import AngularIcon from "./icons/AngularIcon.astro";
+
+const TECNOLOGIES = [
+    {
+        type: "Frontend",
+        items: [
+            {
+                name: "Next.js",
+                class: "bg-black text-white",
+                icon: NextJSIcon,
+            },
+            {
+                name: "React",
+                class: "bg-[#087EA4] text-white",
+                icon: ReactIcon,
+            },
+            {
+                name: "Angular",
+                class: "bg-[#DD0031] text-white",
+                icon: AngularIcon,
+            },
+            {
+                name: "Tailwind CSS",
+                class: "bg-[#003159] text-white",
+                icon: TailwindIcon,
+            },
+        ],
+    },
+    {
+        type: "Backend",
+        items: [
+            {
+                name: "Django",
+                class: "bg-[#113527] text-white",
+                icon: DjangoIcon2,
+            },
+            {
+                name: "Node.js",
+                class: "bg-[#215732] text-white",
+                icon: NodeIcon,
+            },
+            {
+                name: "Python",
+                class: "bg-[#306998] text-white",
+                icon: PythonIcon,
+            },
+            {
+                name: "Laravel",
+                class: "bg-[#FF2D20] text-white",
+                icon: LaravelIcon,
+            },
+        ],
+    },
+    {
+        type: "Herramientas",
+        items: [
+            {
+                name: "Git",
+                class: "bg-[#F05032] text-white",
+                icon: GitIcon,
+            },
+            {
+                name: "GitHub",
+                class: "bg-black text-white",
+                icon: GitHubIcon,
+            },
+            {
+                name: "VS Code",
+                class: "bg-[#007ACC] text-white",
+                icon: VisualCodeIcon,
+            },
+            {
+                name: "AWS",
+                class: "bg-[#FF9900] text-white",
+                icon: AmazonWebServiceIcon,
+            },
+        ],
+    },
+    {
+        type: "Aprendiendo",
+        items: [
+            {
+                name: "TypeScript",
+                class: "bg-[#3178C6] text-white",
+                icon: TypeScriptIcon,
+            },
+            {
+                name: "Astro",
+                class: "bg-[#FF5D01] text-white",
+                icon: AstroIcon,
+            },
+        ],
+    },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  {
+    TECNOLOGIES.map(({ type, items }) => (
+      <div class="bg-gray-800 rounded-lg p-6 shadow hover:shadow-blue-500/30 transition">
+        <h3 class="text-xl font-bold mb-6 text-center md:text-start">{type}</h3>
+        <ul class="grid grid-cols-3 md:grid-cols-4 gap-6 text-center">
+          {items.map(({ name, icon: Icon }) => (
+            <li class="flex flex-col items-center justify-center transition-transform duration-200 hover:scale-110">
+              <Icon class="size-12 mb-2" />
+              <span class="text-sm">{name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
