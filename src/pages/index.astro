@@ -11,6 +11,8 @@ import Experience from "../components/Experience.astro";
 import Section from "../components/Section.astro";
 import Projects from "../components/Projects.astro";
 import Technologies from "../components/Technologies.astro";
+import AboutMe from "../components/AboutMe.astro";
+
 ---
 
 <Layout
@@ -113,9 +115,13 @@ import Technologies from "../components/Technologies.astro";
 				</a>
 			</div>
 		</Section>
-		<Section class="pb-24 pt-20">
+		<Section class="pt-20">
 			<h2 class="text-2xl font-semibold mb-6">Tecnologías</h2>
 			<Technologies />
+		</Section>
+		<Section class="pb-24 pt-20" id="aboutme">
+			<h2 class="text-2xl font-semibold mb-6 text-center md:text-start">Sobre mí</h2>
+			<AboutMe />
 		</Section>
 	</main>
 </Layout>

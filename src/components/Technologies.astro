@@ -109,19 +109,21 @@ const TECNOLOGIES = [
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  {
-    TECNOLOGIES.map(({ type, items }) => (
-      <div class="bg-gray-800 rounded-lg p-6 shadow hover:shadow-blue-500/30 transition">
-        <h3 class="text-xl font-bold mb-6 text-center md:text-start">{type}</h3>
-        <ul class="grid grid-cols-3 md:grid-cols-4 gap-6 text-center">
-          {items.map(({ name, icon: Icon }) => (
-            <li class="flex flex-col items-center justify-center transition-transform duration-200 hover:scale-110">
-              <Icon class="size-12 mb-2" />
-              <span class="text-sm">{name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))
-  }
+    {
+        TECNOLOGIES.map(({ type, items }) => (
+            <div class="bg-gray-800 rounded-lg p-6 shadow hover:shadow-blue-500/30 transition">
+                <h3 class="text-xl font-bold mb-6 text-center md:text-start">
+                    {type}
+                </h3>
+                <ul class="grid grid-cols-3 md:grid-cols-4 gap-6 text-center">
+                    {items.map(({ name, icon: Icon }) => (
+                        <li class="flex flex-col items-center justify-center transition-transform duration-200 hover:scale-110">
+                            <Icon class="size-12 mb-2" />
+                            <span class="text-sm">{name}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        ))
+    }
 </div>

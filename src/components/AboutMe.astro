@@ -1,0 +1,99 @@
+---
+import LinkedInSimpleIcon from "./icons/LinkedInSimpleIcon.astro";
+import InstagramSimpleIcon from "./icons/InstagramSimpleIcon.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+
+const personalImageAlt = "Erick Toala";
+---
+
+<article
+    class="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-20"
+>
+    <!-- Texto -->
+    <div class="max-w-xl text-center md:text-left space-y-4 order-2 md:order-1">
+        <p>
+            Soy <strong class="text-blue-500 dark:text-blue-100"
+                >Erick Toala</strong
+            >, Ingeniero en Tecnologías de la Información y Desarrollador
+            FullStack. Me apasiona crear soluciones que unan lo técnico con lo
+            creativo.
+        </p>
+        <p>
+            Me gustan <strong>los retos tecnológicos</strong>, aprender nuevas
+            herramientas y compartir conocimiento. Disfruto trabajar en
+            proyectos donde puedo combinar <em>diseño, backend y frontend</em>.
+        </p>
+        <p>
+            Fuera de la programación, me encanta <strong
+                >escuchar música, los videojuegos y explorar nuevas ideas</strong
+            >. Siempre busco crecer y mantenerme en constante aprendizaje.
+        </p>
+
+        <div class="md:flex gap-x-4 items-center md:items-start">
+            <!-- Botón -->
+            <a
+                href="#aboutme"
+                class="inline-block mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700"
+            >
+                Conóceme más
+            </a>
+
+            <!-- Redes sociales -->
+            <div class="flex justify-center md:justify-start gap-6 mt-6">
+                <a
+                    href="https://linkedin.com/in/erick-alexander-toala-intriago-58b411205"
+                    target="_blank"
+                    rel="noopener"
+                    class="transition-transform transform hover:scale-110"
+                >
+                    <LinkedInSimpleIcon class="size-7" />
+                </a>
+                <a
+                    href="https://github.com/Erick-Toala"
+                    target="_blank"
+                    rel="noopener"
+                    class="transition-transform transform hover:scale-110"
+                >
+                    <GitHubIcon class="size-7" />
+                </a>
+                <a
+                    href="https://www.instagram.com/toalaerick56?igsh=MXd2OWFhdng0Y2JlZg=="
+                    target="_blank"
+                    rel="noopener"
+                    class="transition-transform transform hover:scale-110"
+                >
+                    <InstagramSimpleIcon class="size-7" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Imagen con efecto flotante -->
+    <div class="order-1 md:order-2 relative">
+        <img
+            width="200"
+            height="200"
+            src="/me.jpg"
+            alt={personalImageAlt}
+            class="object-cover w-64 h-64 p-2 aspect-square rounded-2xl
+             bg-white/10 dark:bg-black/20 backdrop-blur-md
+             ring-1 ring-black/10 dark:ring-white/20 shadow-xl
+             animate-float"
+        />
+    </div>
+</article>
+
+<style>
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-12px);
+        }
+    }
+    .animate-float {
+        animation: float 4s ease-in-out infinite;
+    }
+</style>
