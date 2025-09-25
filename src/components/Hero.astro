@@ -1,0 +1,98 @@
+---
+import Bange from "../components/Bange.astro";
+import GitHubIcon from "../components/icons/GitHubIcon.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import SocialPill from "../components/SocialPill.astro";
+import WhatsAppIcon from "../components/icons/WhatsAppIcon.astro";
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0 gap-x-4">
+    <div class="order-2 md:order-1">
+        <h1 class="text-4xl font-extrabold flex flex-row gap-x-4">
+            Hola, soy Erick Toala
+            <a
+                href="https://www.linkedin.com/in/erick-alexander-toala-intriago-58b411205/"
+                target="_blank"
+                rel="noopener"
+                class="flex justify-center"
+            >
+                <Bange>Disponible</Bange>
+            </a>
+        </h1>
+        <h2 class="text-xl font-semibold mt-2 text-blue-600">
+            Ingeniero en TI | Desarrollador FullStack
+        </h2>
+        <p class="mt-4 text-lg">
+            Desarrollador web apasionado por crear experiencias digitales
+            impresionantes. Bienvenido a mi portafolio, donde comparto mis
+            proyectos y habilidades.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-6">
+            <!-- Botón Contáctame -->
+            <a
+                href="#contact"
+                class="relative overflow-hidden text-sm flex items-center justify-center px-6 py-3 w-full sm:w-auto bg-blue-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
+            >
+                <span class="relative z-10">Contáctame</span>
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-700 transition-all duration-500 group-hover:w-full"
+                ></span>
+            </a>
+
+            <!-- Botón Descargar CV -->
+            <a
+                href="/Erick_Toala_CV.pdf"
+                target="_blank"
+                rel="noopener"
+                class="relative overflow-hidden text-sm flex items-center justify-center px-6 py-3 w-full sm:w-auto border border-blue-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
+            >
+                <span class="relative z-10">Descargar CV</span>
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"
+                ></span>
+            </a>
+
+            <!-- Botón WhatsApp -->
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                class="relative overflow-hidden text-sm flex items-center justify-center px-4 py-3 w-full sm:w-auto bg-green-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group gap-x-2"
+            >
+                <span class="relative z-10 flex items-center gap-x-2">
+                    <WhatsAppIcon class="size-5" />
+                    <p class="md:hidden">WhatsApp</p>
+                </span>
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-green-700 transition-all duration-500 group-hover:w-full"
+                ></span>
+            </a>
+        </div>
+        <!-- Aqui irian las redes sociales en iconos dentro de circulos -->
+        <nav class="flex flex-wrap gap-4 mt-8 text-sm">
+            <SocialPill href="https://github.com/Erick-Toala">
+                <GitHubIcon class="size-5" />
+                GitHub
+            </SocialPill>
+            <SocialPill
+                href="https://www.linkedin.com/in/erick-alexander-toala-intriago-58b411205/"
+            >
+                <LinkedInIcon class="size-5" />
+                LinkedIn
+            </SocialPill>
+            <SocialPill href="mailto:toalaerick56@gmail.com">
+                <MailIcon class="size-5" />
+                toalaerick56@gmail.com
+            </SocialPill>
+        </nav>
+    </div>
+    <!-- Aqui va  la foto centrada en el div -->
+    <div class="order-1 md:order-2">
+        <img
+            class="rounded-full size-60 lg:size-80 mx-auto"
+            src="./erick-perfil.jpg"
+            alt="erickdev logo"
+        />
+    </div>
+</div>

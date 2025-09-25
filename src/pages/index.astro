@@ -1,18 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Bange from "../components/Bange.astro";
-import GitHubIcon from "../components/icons/GitHubIcon.astro";
-import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
-import MailIcon from "../components/icons/MailIcon.astro";
-import SocialPill from "../components/SocialPill.astro";
-import WhatsAppIcon from "../components/icons/WhatsAppIcon.astro";
 
+import Hero from "../components/Hero.astro";
 import Experience from "../components/Experience.astro";
 import Section from "../components/Section.astro";
 import Projects from "../components/Projects.astro";
 import Technologies from "../components/Technologies.astro";
 import AboutMe from "../components/AboutMe.astro";
-
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout
@@ -20,85 +15,10 @@ import AboutMe from "../components/AboutMe.astro";
 	description="Contrata a Erick Toala, un talentoso desarrollador y programador web, para llevar tu presencia en línea al siguiente nivel."
 >
 	<main>
-		<Section class="lg:h-[90vh] pt-24 md:pt-[25vh] pb-24 md:pb-0">
-			<div
-				class="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0 gap-x-4"
-			>
-				<div class="order-2 md:order-1">
-					<h1 class="text-4xl font-extrabold flex flex-row gap-x-4">
-						Hola, soy Erick Toala
-						<a
-							href="https://www.linkedin.com/in/erick-alexander-toala-intriago-58b411205/"
-							target="_blank"
-							rel="noopener"
-							class="flex justify-center"
-						>
-							<Bange>Disponible</Bange>
-						</a>
-					</h1>
-					<h2 class="text-xl font-semibold mt-2 text-blue-600">
-						Ingeniero en TI | Desarrollador FullStack
-					</h2>
-					<p class="mt-4 text-lg">
-						Desarrollador web apasionado por crear experiencias
-						digitales impresionantes. Bienvenido a mi portafolio,
-						donde comparto mis proyectos y habilidades.
-					</p>
-					<div class="flex flex-wrap gap-4 mt-6">
-						<a
-							href="#"
-							class="text-sm flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition w-full sm:w-auto"
-						>
-							Contáctame
-						</a>
-						<a
-							href="/Erick_Toala_CV.pdf"
-							target="_blank"
-							rel="noopener"
-							class="text-sm flex items-center justify-center px-6 py-3 border border-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition w-full sm:w-auto"
-						>
-							Descargar CV
-						</a>
-						<a
-							href="#"
-							target="_blank"
-							rel="noopener"
-							class="text-sm flex items-center justify-center px-4 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition gap-x-2 w-full sm:w-auto"
-						>
-							<WhatsAppIcon class="size-5" />
-							<p class="md:hidden">WhatsApp</p>
-						</a>
-					</div>
-
-					<!-- Aqui irian las redes sociales en iconos dentro de circulos -->
-					<nav class="flex flex-wrap gap-4 mt-8 text-sm">
-						<SocialPill href="https://github.com/Erick-Toala">
-							<GitHubIcon class="size-5" />
-							GitHub
-						</SocialPill>
-						<SocialPill
-							href="https://www.linkedin.com/in/erick-alexander-toala-intriago-58b411205/"
-						>
-							<LinkedInIcon class="size-5" />
-							LinkedIn
-						</SocialPill>
-						<SocialPill href="mailto:toalaerick56@gmail.com">
-							<MailIcon class="size-5" />
-							toalaerick56@gmail.com
-						</SocialPill>
-					</nav>
-				</div>
-				<!-- Aqui va  la foto centrada en el div -->
-				<div class="order-1 md:order-2">
-					<img
-						class="rounded-full size-60 lg:size-80 mx-auto"
-						src="./erick-perfil.jpg"
-						alt="erickdev logo"
-					/>
-				</div>
-			</div>
+		<Section class="lg:h-[90vh] pt-24 md:pt-[25vh]" id="hero">
+			<Hero />
 		</Section>
-		<Section class="lg:pt-20" id="experience">
+		<Section class="pt-20" id="experience">
 			<h2 class="text-2xl font-semibold mb-6">Experiencia</h2>
 			<Experience />
 		</Section>
@@ -109,9 +29,12 @@ import AboutMe from "../components/AboutMe.astro";
 			<div class="text-center mt-12">
 				<a
 					href=""
-					class="text-sm inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+					class="relative overflow-hidden text-sm inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
 				>
-					Ver más proyectos
+					<span class="relative z-10">Ver más proyectos</span>
+					<span
+						class="absolute left-0 top-0 h-full w-0 bg-blue-700 transition-all duration-500 group-hover:w-full"
+					></span>
 				</a>
 			</div>
 		</Section>
@@ -119,9 +42,17 @@ import AboutMe from "../components/AboutMe.astro";
 			<h2 class="text-2xl font-semibold mb-6">Tecnologías</h2>
 			<Technologies />
 		</Section>
-		<Section class="pb-24 pt-20" id="aboutme">
-			<h2 class="text-2xl font-semibold mb-6 text-center md:text-start">Sobre mí</h2>
+		<Section class="pt-20" id="aboutme">
+			<h2 class="text-2xl font-semibold mb-6 text-center md:text-start">
+				Sobre mí
+			</h2>
 			<AboutMe />
+		</Section>
+		<Section id="contact" class="pb-24 pt-20">
+			<h2 class="text-2xl font-semibold mb-6 text-center md:text-start">
+				Contacto
+			</h2>
+			<Contact />
 		</Section>
 	</main>
 </Layout>

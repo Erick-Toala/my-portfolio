@@ -29,15 +29,36 @@
     </button>
 
     <!-- Menú -->
+    <!-- Menú -->
     <nav
       id="menu"
       class="hidden flex-col gap-y-4 absolute top-16 left-0 w-full lg:w-auto bg-neutral-950/95 shadow-md p-6
                        lg:p-0 lg:static lg:flex lg:flex-row lg:gap-x-10 lg:shadow-none lg:bg-transparent"
     >
-      <a href="#experience" class="hover:text-blue-500">Experiencia</a>
-      <a href="#project" class="hover:text-blue-500">Proyectos</a>
-      <a href="#aboutme" class="hover:text-blue-500">Sobre mí</a>
-      <a href="#contact" class="hover:text-blue-500">Contacto</a>
+      <a href="#experience" class="nav-link relative group text-white">
+        Experiencia
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
+        ></span>
+      </a>
+      <a href="#project" class="nav-link relative group text-white">
+        Proyectos
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
+        ></span>
+      </a>
+      <a href="#aboutme" class="nav-link relative group text-white">
+        Sobre mí
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
+        ></span>
+      </a>
+      <a href="#contact" class="nav-link relative group text-white">
+        Contacto
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"
+        ></span>
+      </a>
     </nav>
   </div>
 </header>
@@ -62,3 +83,60 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+
+    btn?.addEventListener("click", () => {
+      menu?.classList.toggle("hidden");
+      menu?.classList.toggle("flex");
+    });
+
+    // Cerrar menú al dar clic en un enlace
+    menu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+      });
+    });
+
+    // ---- Scrollspy ----
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // id de la sección visible
+            const id = entry.target.getAttribute("id");
+            // quitar 'active' de todos
+            navLinks.forEach((link) => link.classList.remove("active"));
+            // añadir 'active' al actual
+            const currentLink = document.querySelector(
+              `.nav-link[href="#${id}"]`,
+            );
+            currentLink?.classList.add("active");
+          }
+        });
+      },
+      {
+        threshold: 0.5, // cuando 50% de la sección esté visible
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>
+
+<style>
+  .nav-link.active {
+    color: #3b82f6; /* azul Tailwind */
+  }
+
+  .nav-link.active span {
+    width: 100%; /* subrayado visible siempre */
+  }
+</style>

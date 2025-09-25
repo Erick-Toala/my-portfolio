@@ -45,7 +45,8 @@ const PROJECTS = [
     },
     {
         title: "Love and Travel",
-        description: "Una plataforma web para compartir viajes y experiencias junto a mi pareja, incluye blog y galería de fotos.",
+        description:
+            "Una plataforma web para compartir viajes y experiencias junto a mi pareja, incluye blog y galería de fotos.",
         image: "/projects/travelweb.png",
         respository: "",
         link: "https://travelweb-proyect.vercel.app",
@@ -94,19 +95,22 @@ const PROJECTS = [
                                     href={link}
                                     target="_blank"
                                     rel="noopener"
-                                    class="text-sm inline-block px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition"
+                                    class="relative overflow-hidden text-sm inline-block px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
                                 >
-                                    Live Demo
+                                    <span class="relative z-10">Live Demo</span>
+                                    <span class="absolute left-0 top-0 h-full w-0 bg-green-700 transition-all duration-500 group-hover:w-full" />
                                 </a>
                             )}
+
                             {respository && (
                                 <a
                                     href={respository}
                                     target="_blank"
                                     rel="noopener"
-                                    class="text-sm inline-block px-4 py-2 border border-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+                                    class="relative overflow-hidden text-sm inline-block px-4 py-2 border border-blue-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
                                 >
-                                    View Code
+                                    <span class="relative z-10">View Code</span>
+                                    <span class="absolute left-0 top-0 h-full w-0 bg-blue-700 transition-all duration-500 group-hover:w-full" />
                                 </a>
                             )}
                         </div>

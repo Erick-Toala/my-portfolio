@@ -33,9 +33,12 @@ const personalImageAlt = "Erick Toala";
             <!-- Botón -->
             <a
                 href="#aboutme"
-                class="inline-block mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700"
+                class="relative overflow-hidden text-sm inline-block mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
             >
-                Conóceme más
+                <span class="relative z-10">Conóceme más</span>
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-700 transition-all duration-500 group-hover:w-full"
+                ></span>
             </a>
 
             <!-- Redes sociales -->
