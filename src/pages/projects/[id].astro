@@ -1,0 +1,168 @@
+---
+import { PROJECTS } from "../../data/projects";
+import Layout from "../../layouts/Layout.astro";
+
+import Section from "../../components/Section.astro";
+import ArrowLeftIcon from "../../components/icons/ArrowLeftIcon.astro";
+import GitHubIcon from "../../components/icons/GitHubIcon.astro";
+import ExternalLinkIcon from "../../components/icons/ExternalLinkIcon.astro";
+
+export async function getStaticPaths() {
+    return PROJECTS.map((project) => ({
+        params: { id: project.slug },
+        props: { project },
+    }));
+}
+const { project } = Astro.props;
+const { image, title, slug, description, tags, link, respository } = project;
+
+// Filtra los otros proyectos excluyendo el actual
+const otherProjects = PROJECTS.filter((p) => p.slug !== slug) // excluir el proyecto actual
+    .slice(0, 3);
+---
+
+<Layout title={`${title} - Proyectos de Erick Toala`}>
+    <Section class="pt-20">
+        <div class="grid grid-cols-1 md:grid-cols-8 grid-rows-1 gap-4 mt-4">
+            <div
+                class="col-span-1 md:col-span-6 flex items-center justify-between"
+            >
+                <div class="flex items-center text-center gap-x-2">
+                    <a
+                        href="/#project"
+                        class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition"
+                    >
+                        <ArrowLeftIcon
+                            class="size-8 text-white hover:text-blue-600"
+                        />
+                    </a>
+                    <h1 class="text-2xl font-semibold">{title}</h1>
+                </div>
+                <div class="flex items-center gap-x-4 ml-auto">
+                    {
+                        link && (
+                            <a
+                                href={link}
+                                target="_blank"
+                                rel="noopener"
+                                class="text-gray-300 hover:text-white transition"
+                                title="Live Demo"
+                            >
+                                <ExternalLinkIcon class="size-6" />
+                            </a>
+                        )
+                    }
+                    {
+                        respository && (
+                            <a
+                                href={respository}
+                                target="_blank"
+                                rel="noopener"
+                                class="text-gray-300 hover:text-white transition"
+                                title="View Code"
+                            >
+                                <GitHubIcon class="size-6" />
+                            </a>
+                        )
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-8 grid-rows-1 gap-4 mt-4">
+            <div class="col-span-1 md:col-span-6 mb-12">
+                <div class="">
+                    <img
+                        transition:name={`img-${slug}`}
+                        src={image}
+                        alt={title}
+                        class="w-auto md:w-full h-auto md:h-96 object-cover rounded-lg shadow-lg"
+                    />
+                </div>
+                <p class="text-gray-300 mt-6">{description}</p>
+                <p class="text-gray-300 font-semibold mt-8">
+                    Tecnologías implementadas:
+                </p>
+                <div class="flex flex-wrap justify-start gap-2 mt-4">
+                    {
+                        tags.map((tag) => (
+                            <span
+                                class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                            >
+                                <tag.icon class="size-4" />
+                                {tag.name}
+                            </span>
+                        ))
+                    }
+                </div>
+                <div class="flex items-center justify-start gap-4 py-4">
+                    {
+                        link && (
+                            <a
+                                href={link}
+                                target="_blank"
+                                rel="noopener"
+                                class="relative overflow-hidden text-sm inline-block px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
+                            >
+                                <span class="relative z-10">Live Demo</span>
+                                <span class="absolute left-0 top-0 h-full w-0 bg-green-700 transition-all duration-500 group-hover:w-full" />
+                            </a>
+                        )
+                    }
+
+                    {
+                        respository && (
+                            <a
+                                href={respository}
+                                target="_blank"
+                                rel="noopener"
+                                class="relative overflow-hidden text-sm inline-block px-4 py-2 border border-blue-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 group"
+                            >
+                                <span class="relative z-10">View Code</span>
+                                <span class="absolute left-0 top-0 h-full w-0 bg-blue-700 transition-all duration-500 group-hover:w-full" />
+                            </a>
+                        )
+                    }
+                </div>
+                <div class="mt-6 text-gray-300">
+                    <h2 class="text-lg font-semibold">Galeria de fotos</h2>
+                    <p>En construcción...</p>
+                </div>
+            </div>
+            <div class="col-span-1 md:col-span-2 md:col-start-7">
+                <div
+                    class="text-sm text-gray-300 font-medium px-3 pt-2 pb-6 bg-gray-800 rounded-lg"
+                >
+                    <h3 class="text-lg">Más proyectos</h3>
+                    <ul class="mt-2 space-y-2">
+                        {
+                            otherProjects.map((p) => (
+                                <li class="bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-blue-600/50 transition">
+                                    <a
+                                        href={`/projects/${p.slug}`}
+                                        class="flex items-center gap-3 p-2 hover:bg-gray-600 transition"
+                                    >
+                                        <div>
+                                            <img
+                                                src={p.image}
+                                                alt={p.title}
+                                                class="w-full h-36 md:h-24 object-cover rounded"
+                                            />
+                                            <div class="space-y-1 mt-2">
+                                                <p class="text-white text-sm font-semibold line-clamp-1">
+                                                    {p.title}
+                                                </p>
+                                                <p class="text-gray-400 text-xs line-clamp-2">
+                                                    {p.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </Section>
+</Layout>

@@ -1,80 +1,21 @@
 ---
-import NextJSIcon from "./icons/NextJSIcon.astro";
-import DjangoIcon from "./icons/DjangoIcon.astro";
-import TailwindIcon from "./icons/TailwindIcon.astro";
-import BootstrapIcon from "./icons/BootstrapIcon.astro";
-import PostresqlIcon from "./icons/PostgresSQLIcon.astro";
-
-const TAGS = {
-    NEXT: {
-        name: "Next.js",
-        class: "bg-black text-white",
-        icon: NextJSIcon,
-    },
-    TAILWIND: {
-        name: "Tailwind CSS",
-        class: "bg-[#003159] text-white",
-        icon: TailwindIcon,
-    },
-    DJANGO: {
-        name: "Django",
-        class: "bg-[#2ba977] text-white",
-        icon: DjangoIcon,
-    },
-    BOOTSTRAP: {
-        name: "Bootstrap",
-        class: "bg-[#8c19fe] text-white",
-        icon: BootstrapIcon,
-    },
-    POSTGRESQL: {
-        name: "PostgreSQL",
-        class: "bg-[#336791] text-white",
-        icon: PostresqlIcon,
-    },
-};
-
-const PROJECTS = [
-    {
-        title: "IoT Uleam",
-        description:
-            "Una plataforma web para monitoreo y visualización de datos de sensores IoT en tiempo real.",
-        image: "/projects/iotuleam.png",
-        respository: "",
-        link: "https://iot.uleam.edu.ec/es",
-        tags: [TAGS.NEXT, TAGS.DJANGO, TAGS.TAILWIND, TAGS.POSTGRESQL],
-    },
-    {
-        title: "Love and Travel",
-        description:
-            "Una plataforma web para compartir viajes y experiencias junto a mi pareja, incluye blog y galería de fotos.",
-        image: "/projects/travelweb.png",
-        respository: "",
-        link: "https://travelweb-proyect.vercel.app",
-        tags: [TAGS.NEXT, TAGS.DJANGO, TAGS.TAILWIND],
-    },
-    {
-        title: "Arenales League",
-        description:
-            "Una plataforma web para gestionar ligas deportivas, incluyendo equipos, jugadores y estadísticas.",
-        image: "/projects/arenalesleague.png",
-        respository: "",
-        link: "",
-        tags: [TAGS.DJANGO, TAGS.BOOTSTRAP],
-    },
-];
+import { PROJECTS } from "../data/projects.ts";
 ---
 
 <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
     {
         PROJECTS.map(
-            ({ image, title, description, tags, link, respository }) => (
-                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg shandow-blue-900/50 hover:shadow-blue-600/50 hover:scale-[1.02] transition duration-300 hover:cursor-pointer">
+            ({ image, title, slug, description, tags, link, respository }) => (
+                <article class="bg-gray-800 rounded-lg overflow-hidden shadow-lg shandow-blue-900/50 hover:shadow-blue-600/50 hover:scale-[1.02] transition duration-300 hover:cursor-pointer">
                     <div class="p-2">
-                        <img
-                            src={image}
-                            alt={title}
-                            class="w-full h-40 object-cover rounded-lg"
-                        />
+                        <a href={`/projects/${slug}`}>
+                            <img
+                                transition:name={`img-${slug}`}
+                                src={image}
+                                alt={title}
+                                class="w-full h-40 object-cover rounded-lg"
+                            />
+                        </a>
                     </div>
                     <div class="px-4 py-2">
                         <h3 class="text-lg font-semibold ">{title}</h3>
@@ -115,7 +56,7 @@ const PROJECTS = [
                             )}
                         </div>
                     </div>
-                </div>
+                </article>
             ),
         )
     }
