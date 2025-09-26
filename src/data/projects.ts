@@ -40,6 +40,14 @@ export const PROJECTS = [
     description:
       "Una plataforma web para monitoreo y visualización de datos de sensores IoT en tiempo real.",
     image: "/projects/iotuleam.png",
+    images: [ // nuevas imágenes adicionales
+      "/projects/1.png",
+      "/projects/2.png",
+      "/projects/3.png",
+      "/projects/4.png",
+      "/projects/5.png",
+      "/projects/6.png",
+    ],
     respository: "",
     link: "https://iot.uleam.edu.ec/es",
     tags: [TAGS.NEXT, TAGS.DJANGO, TAGS.TAILWIND, TAGS.POSTGRESQL],
@@ -50,6 +58,10 @@ export const PROJECTS = [
     description:
       "Una plataforma web para compartir viajes y experiencias junto a mi pareja.",
     image: "/projects/travelweb.png",
+    images: [ // nuevas imágenes adicionales
+      "/projects/1.png",
+      "/projects/2.png",
+    ],
     respository: "https://travelweb-proyect.vercel.app",
     link: "https://travelweb-proyect.vercel.app",
     tags: [TAGS.NEXT, TAGS.DJANGO, TAGS.TAILWIND],
@@ -60,6 +72,11 @@ export const PROJECTS = [
     description:
       "Una plataforma web para gestionar ligas deportivas.",
     image: "/projects/arenalesleague.png",
+    images: [ // nuevas imágenes adicionales
+      "/projects/1.png",
+      "/projects/2.png",
+      "/projects/3.png",
+    ],
     respository: "",
     link: "",
     tags: [TAGS.DJANGO, TAGS.BOOTSTRAP],

@@ -1,0 +1,100 @@
+---
+interface Props {
+    images: string[];
+}
+
+const { images = [] } = Astro.props;
+---
+
+<div
+    id="lightbox"
+    class="fixed inset-0 bg-black/90 z-50 items-center justify-center hidden"
+>
+    <!-- Botón cerrar -->
+    <button
+        id="lightbox-close"
+        class="absolute top-5 right-5 text-white text-3xl font-bold"
+        >&times;</button
+    >
+
+    <!-- Botón anterior -->
+    <button
+        id="lightbox-prev"
+        class="absolute left-5 text-white text-4xl font-bold">&lt;</button
+    >
+
+    <!-- Imagen -->
+    <img
+        id="lightbox-image"
+        src=""
+        alt="imagen ampliada"
+        class="max-h-[90%] max-w-[90%] object-contain rounded-lg"
+    />
+
+    <!-- Botón siguiente -->
+    <button
+        id="lightbox-next"
+        class="absolute right-5 text-white text-4xl font-bold">&gt;</button
+    >
+</div>
+
+<!-- 🔹 Script con acceso directo a variables Astro -->
+<script is:inline>
+    // Espera a que DOM esté listo
+    document.addEventListener("DOMContentLoaded", () => {
+        const imagesArray = JSON.parse(`${JSON.stringify(Astro.props.images)}`);
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightbox-image");
+        const btnClose = document.getElementById("lightbox-close");
+        const btnPrev = document.getElementById("lightbox-prev");
+        const btnNext = document.getElementById("lightbox-next");
+
+        let currentIndex = 0;
+
+        function updateImage() {
+            if (lightboxImage) {
+                lightboxImage.src = imagesArray[currentIndex];
+            }
+        }
+
+        // 🔹 declarar función en window aquí dentro
+        window.openLightbox = (index) => {
+            currentIndex = index;
+            updateImage();
+            if (lightbox) {
+                lightbox.classList.remove("hidden");
+                lightbox.classList.add("flex"); // 👈 importante para que se muestre
+            }
+        };
+
+        btnClose?.addEventListener("click", () => {
+            if (lightbox) {
+                lightbox.classList.add("hidden");
+                lightbox.classList.remove("flex");
+            }
+        });
+
+        btnPrev?.addEventListener("click", () => {
+            currentIndex =
+                (currentIndex - 1 + imagesArray.length) % imagesArray.length;
+            updateImage();
+        });
+
+        btnNext?.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % imagesArray.length;
+            updateImage();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (lightbox && !lightbox.classList.contains("hidden")) {
+                if (e.key === "Escape") {
+                    lightbox.classList.add("hidden");
+                    lightbox.classList.remove("flex");
+                }
+                if (e.key === "ArrowLeft") btnPrev?.click();
+                if (e.key === "ArrowRight") btnNext?.click();
+            }
+        });
+    });
+</script>

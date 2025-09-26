@@ -2,6 +2,8 @@
 import { PROJECTS } from "../../data/projects";
 import Layout from "../../layouts/Layout.astro";
 
+import PhotoGallery from "../../components/PhotoGallery.jsx";4
+
 import Section from "../../components/Section.astro";
 import ArrowLeftIcon from "../../components/icons/ArrowLeftIcon.astro";
 import GitHubIcon from "../../components/icons/GitHubIcon.astro";
@@ -14,7 +16,8 @@ export async function getStaticPaths() {
     }));
 }
 const { project } = Astro.props;
-const { image, title, slug, description, tags, link, respository } = project;
+const { image, images, title, slug, description, tags, link, respository } = project;
+
 
 // Filtra los otros proyectos excluyendo el actual
 const otherProjects = PROJECTS.filter((p) => p.slug !== slug) // excluir el proyecto actual
@@ -124,8 +127,8 @@ const otherProjects = PROJECTS.filter((p) => p.slug !== slug) // excluir el proy
                     }
                 </div>
                 <div class="mt-6 text-gray-300">
-                    <h2 class="text-lg font-semibold">Galeria de fotos</h2>
-                    <p>En construcción...</p>
+                    <h2 class="text-lg font-semibold">Galería de fotos</h2>
+                    <PhotoGallery images={images as any} client:load/>
                 </div>
             </div>
             <div class="col-span-1 md:col-span-2 md:col-start-7">
